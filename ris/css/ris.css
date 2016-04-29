@@ -1,0 +1,101 @@
+html, body{
+	margin:0px;
+	padding:0px;
+	height:100%;
+	overflow:hidden;
+}
+
+.dhx_matrix_scell.folder .dhx_scell_expand {
+    float: left;
+    width: 15px;
+    height: 11px;
+    /*
+    background-color: #49A223;
+    font-size: 1em;
+    border: 1px solid #fff;
+    */
+    cursor: pointer;
+    padding: 1px 7px 13px 4px;
+    margin-right: 2px;
+    
+    
+}
+
+.dhx_scale_bar, .dhx_scell_name {
+	cursor: default;
+	color: #000;
+}
+
+tr:hover .dhx_matrix_scell.item {
+	background-color: #ececec;
+	border-bottom: 1px solid #49A223;
+	color: #49A223;
+	font-weight: bold;
+}
+
+tr:hover .dhx_matrix_cell {
+	background-color: #ececec;
+	border-bottom: 1px solid #49A223;
+}
+
+.dhx_cal_date, .dhx_cal_next_button, .dhx_cal_prev_button, .dhx_cal_tab, .dhx_cal_today_button {
+	border: 1px solid #cecece;
+}
+
+.dhx_cal_tab.active {
+	border: 1px solid #5780ad;		
+}
+
+.dhx_data_table.folder .dhx_matrix_cell, .dhx_matrix_scell.folder {
+    background-color: #ababab;
+    cursor: default;
+    color: #fff;
+    border-right: 1px solid #cecece;
+    font-size: 1.5em;
+}
+
+.dhx_matrix_scell.item .dhx_scell_name {
+    padding-left: 0px;
+    text-align: left;
+}
+
+
+.holiday_section {
+	background-image:url(../image/fat_lines.png);
+}
+.weekend_section {
+	background-image:url(../image/fat_lines.png);
+}
+
+.section_1{
+	background-color: #49A223;
+}
+.section_2{
+	background-color: #e29e2e;
+}
+.section_3{
+	background-color: #c53b64;
+}
+.section_4{
+	background-color: #6e7dc5;
+}
+
+.dhx_event_resize{
+	display:none;
+}
+.dhx_cal_event_line {
+	height:90% !important;
+	top: 1px !important;
+}
+.white_cell{
+	background-color:white;
+}
+.green_cell{
+	background-color:#95FF95;		
+}
+.yellow_cell{
+	background-color:#FFFF79;
+}
+.red_cell{
+	background-color:#FF5353;
+}

@@ -232,19 +232,41 @@ scheduler.attachEvent("onCellClick", function (x, y, a, b, event){
 	}
 });
 
-scheduler.isExpandSign = function(target) {
-	
-	var maxRecursive = 30, count = 0;
-	while (target && count < maxRecursive && target != this._obj ) {
+scheduler.bubbleCheckClassName = function(target, css) {
+	function include(arr1, arr2) {
+		if (typeof arr2 === 'string') {
+			return arr1.indexOf(arr2) >= 0;
+		} else {
+			var has = false;
+			for(var i =0 ;i<arr2.length; i++) {
+				if (arr1.indexOf(arr2[i]) >= 0) {
+					has = true;
+					break;
+				}
+			}
+			return has;
+		}
+	}
+
+	var max_depth = 30, depth = 0;
+	while (target && depth < max_depth && target != this._obj ) {
 		var cssArr = target.className.split(" ");
-		if (cssArr.indexOf("dhx_scell_expand") >= 0) {
+		if (include(cssArr, css)) {
 			return true;
 		}
 		
 		target = target.parentNode;
-		count ++;
+		depth ++;
 	}	
 	return false;
+};
+
+scheduler.isExpandSign = function(target) {
+	return this.bubbleCheckClassName(target, "dhx_scell_expand");
+};
+
+scheduler.isFolderCell = function(target) {
+	return this.bubbleCheckClassName(target, ["dhx_row_folder", "folder"]); 
 };
 
 scheduler.attachEvent("onYScaleClick", function (index, value, event){
