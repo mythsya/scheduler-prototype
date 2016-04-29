@@ -1,0 +1,6 @@
+*.[oa]
+
+*~
+
+# ignore all files in the build/ directory
+build/
