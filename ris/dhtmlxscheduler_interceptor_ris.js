@@ -24,7 +24,36 @@ var max_depth = 30;
 
 scheduler.attachEvent("onOptionsLoad", function(opts) {
 
+	var view_mode = (opts && opts.view_mode) || 'week';
 	var mname = (opts && opts.name) || 'matrix';
+
+	function is_month_view() {
+		return view_mode=='month';
+	}
+
+	scheduler.date[mname+"_start"] = function(date) {
+		if (is_month_view()) {
+			return scheduler.date.month_start(date);
+		} else {
+			return scheduler.date.week_start(date);	
+		}
+	};
+
+	scheduler.date["get_"+mname+"_end"] = function(start_date){
+		if (is_month_view()) {
+			return scheduler.date.add(start_date,1,"month"); 
+		} else {
+			return scheduler.date.add(start_date,7,"day"); 
+		}		
+	}
+
+	scheduler.date["add_"+mname] = function(date,inc){
+		if (is_month_view()) {
+			return scheduler.date.add(date, inc,"month"); 
+		} else {
+			return scheduler.date.add(date, inc*7, "day");
+		}
+	}
 
 	scheduler.templates[mname+"_scale_date"] = function(date) {
 		var hour = (date||new Date()).getHours();
@@ -39,13 +68,19 @@ scheduler.attachEvent("onOptionsLoad", function(opts) {
 	};
 
 	scheduler.templates[mname+"_scalex_class"] = function(date){
-		if (date.getDay()==0 || date.getDay()==6)  return "weekend_section";
-		return "";
+		if (date.getDay()==0 || date.getDay()==6) {
+			return "weekend_section";
+		} else {
+			return "";
+		}
 	};
 
 	scheduler.templates[mname+"_second_scalex_class"] = function(date){
-		if (date.getDay()==0 || date.getDay()==6)  return "weekend_section";
-		return "";
+		if (date.getDay()==0 || date.getDay()==6) {
+			return "weekend_section";
+		} else {
+			return "";
+		}
 	};	
 
 	scheduler.templates.event_bar_date = function(start, end, evt) {

@@ -56,6 +56,7 @@
 
 		scheduler = scheduler || Scheduler.getSchedulerInstance();
 
+		scheduler.locale.labels["week_tab"] = "BANCI";
 		scheduler.locale.labels[tabbtn+"_tab"] = tabname;
 		scheduler.locale.labels.section_custom="Section";
 
@@ -220,7 +221,7 @@
 			<div class="dhx_cal_next_button">&nbsp;</div>
 			<div class="dhx_cal_today_button"></div>
 			<div class="dhx_cal_date"></div>
-
+			<!--<div class="dhx_cal_tab" name="week_tab"></div>-->
 			<div class="dhx_minical_icon" id="dhx_minical_icon" onclick="show_minical()">&nbsp;</div>
 
 		</div>
