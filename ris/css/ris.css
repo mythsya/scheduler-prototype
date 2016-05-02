@@ -79,6 +79,9 @@ tr:hover .dhx_matrix_cell {
 .section_4{
 	background-color: #6e7dc5;
 }
+.section_5{
+	background-color: pink;
+}
 
 .dhx_event_resize{
 	display:none;

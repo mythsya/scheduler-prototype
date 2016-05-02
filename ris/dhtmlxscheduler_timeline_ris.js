@@ -765,7 +765,7 @@ function x_dates(preserve){
 	}
 	return {total: total_count, displayed: display_count};
 }
-function x_scale(h){
+function x_scale(h){	
 	var current_sh = scheduler.xy.scale_height;
 	var original_sh = this._header_resized||scheduler.xy.scale_height;
 	scheduler._cols=[];	//store for data section, each column width
